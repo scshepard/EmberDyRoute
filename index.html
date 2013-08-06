@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ember List Markers Starter Kit</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Works on Aug 3rd -->
+<script type="text/x-handlebars" data-template-name="application">
+<h5>application template</h5>
+<div>Application title: {{title}}</div>
+<div>info: {{info}}</div>
+<div>appName: {{appName}}</div>
+
+<h3>Hello, {{firstName}}</h3>
+{{outlet}}
+
+{{#linkTo 'about'}}About{{/linkTo}}
+{{#linkTo 'index'}}Index{{/linkTo}}
+{{#linkTo 'books'}}Books{{/linkTo}}
+{{#linkTo 'records'}}Records{{/linkTo}}
+{{#linkTo 'markers'}}Markers{{/linkTo}}
+<h5>application template end</h5>
+</script>
+
+<!-- Works on August 4th -->
+<script type="text/x-handlebars" data-template-name="about">
+<h5>about template</h5>
+<h5>appName : {{appName}}</h5>
+{{abt}}
+{{outlet}}
+
+</h5>about template end</h5>
+</script>
+
+<!-- Works on Aug 3rd -->
+<script type="text/x-handlebars" data-template-name="index">
+<h5>index template</h5>
+<h3>appName: {{appName}}</h3>
+<div>info: 
+{{info}}
+<h5>index template end</h5>
+</div>
+</script>
+
+<!-- Works on Aug 3rd -->
+<script type="text/x-handlebars" data-template-name="records">
+<h5>records template</h5>
+<h5>appName: {{appName}}</h5>
+<ul>
+
+{{#each controller}}
+<li>{{#linkTo 'record' this}}{{Name}}{{/linkTo}}</li>
+{{/each}}
+</ul>
+{{outlet}}
+<h5>records template end</h5>
+</script>
+
+<!-- Works on Aug 4th -->
+<script type="text/x-handlebars" data-template-name="record">
+<h5>record template</h5>
+
+Name : {{Name}}
+
+<h5>Record template end</h5>
+</script>
+
+<!-- Works on August 5th -->
+<script type="text/x-handlebars" data-template-name="books/index">
+<h5>books/index template</h5>
+
+{{#each controller}}
+{{#linkTo 'book' this}}{{Name}}{{/linkTo}}
+{{/each}}
+
+{{outlet}}
+<h5>books/index template end</h5>
+</script>
+
+<!-- works on August 5th -->
+<script type="text/x-handlebars" data-template-name="books">
+<h5>books template</h5>
+{{outlet}}
+<h5>books template end</h5>
+</script>
+
+<!-- works on August 5th -->
+<script type="text/x-handlebars" data-template-name="book">
+<h5>book template</h5>
+{{Name}}
+<h5>book template end</h5>
+</script>
+
+<script type="text/x-handlebars" data-template-name="books/book>
+<h5>books.book template</h5>
+<h5>appName : {{appName}}</h5>
+{{outlet}}
+<h5>books.book template end</h5>
+</script>
+
+
+<script type="text/x-handlebars" data-template-name="markers">
+<h5>markers template</h5>
+<h4>title: {{title}}</h4>
+<ul>
+{{#each marker in this}}
+<li>{{#linkTo 'marker' marker }}{{marker.Name}}{{/linkTo}}</li>
+{{/each}}
+</ul>
+
+{{outlet}}
+<h5>markers template end</h5>
+</script>
+
+
+<script type="text/x-handlebars" data-template-name="marker">
+<h5>marker template</h5>
+<ul>
+<h4>{{Name}},{{Region}}</h4>
+</ul>
+<h5>marker template</h5>
+</script>
+
+  <script src="js/libs/jquery-1.9.1.js"></script>
+  <script src="js/libs/handlebars-1.0.0-rc.4.js"></script>
+  <script src="js/libs/ember-1.0.0-rc.6.js"></script>
+  <script src="js/libs/ember-data.js"></script>
+  
+  <script src="js/application.js"></script>
+  <script src="js/router.js"></script>
+  
+  <script src="js/models/store.js"></script>
+  <script src="js/models/marker.js"></script>
+  <script src="js/models/book.js"></script>
+  <script src="js/models/record.js"></script>
+  
+  <script src="js/controllers/markers_controller.js"></script>
+
+</body>
+</html>
